@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SteamModel>
+@{
+    ViewBag.Title = "Steam游戏价格";
+
+}
+<style>
+    body {
+        text-align: center;
+        width: 100%;
+    }
+
+    .formCenter {
+        background-color: aquamarine;
+        width: 50%;
+        margin: auto;
+        border: solid 1px
+    }
+
+    /* altrowstable */
+    table.altrowstable {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #a9c6c9;
+        border-collapse: collapse;
+    }
+
+        table.altrowstable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+
+        table.altrowstable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+
+    .oddrowcolor {
+        background-color: #d4e3e5;
+    }
+
+    .evenrowcolor {
+        background-color: #c3dde0;
+    }
+
+    /* /altrowstable */
+
+</style>
+<body>
+    <table class="formCenter altrowstable ">
+        <thead style="line-height: 3; background-color: lightblue">
+            <tr style="border-bottom:1px solid">
+                <th>原价</th>
+                <th>折扣价</th>
+                <th>商家</th>
+                <th>语言</th>
+                <th>发布时间</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var steamModel in Model)
+            {
+                <tr style="border-bottom:1px solid">
+                    <td>
+                       $@steamModel.original
+                    </td>
+                    <td>
+                        $@steamModel.sale
+                    </td>
+                    <td>
+                        @steamModel.cc
+                    </td>
+                    <td>
+                        @steamModel.language
+                    </td>
+                    <td>
+                        @steamModel.created_at
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
