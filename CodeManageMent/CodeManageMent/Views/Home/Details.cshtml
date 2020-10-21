@@ -1,7 +1,7 @@
 ﻿@model HomoDetailViewModel
 @{
     ViewBag.Title = "学生详情页面";
-    var photoPath = "~/images/noimage.jpg";
+    var photoPath = "~/images/" + (Model.Student.Id == 1 ? "my.jpg" : Model.Student.Id == 2 ? "mht.jpg" : "lj.jpg");
 }
 <div class="row justify-content-center m-3">
     <div class="col-sm-8">
@@ -9,10 +9,8 @@
             <div class="card-header">
                 <h1>@Model.Student.Name</h1>
             </div>
-
             <div class="card-body text-center">
-                <img class="card-img-top" src="~/images/noimage.jpg"  asp-append-version="true" />
-
+                <img class="card-img-top imagesThumbnail"  src="@photoPath" asp-append-version="true" />
                 <h4>学生ID : @Model.Student.Id</h4>
                 <h4>邮箱 : @Model.Student.Email</h4>
                 <h4>班级名称 : @Model.Student.ClassName</h4>

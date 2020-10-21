@@ -13,6 +13,7 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+        //"APSNETCORE_ENVIRONMENT": "Staging"
       }
     },
     "CodeManageMent": {
