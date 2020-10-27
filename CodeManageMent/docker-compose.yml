@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  codemanagement:
+    image: ${DOCKER_REGISTRY-}codemanagement
+    build:
+      context: .
+      dockerfile: CodeManageMent/Dockerfile

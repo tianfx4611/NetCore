@@ -40,6 +40,15 @@ namespace CodeManageMent.Controllers
             return View(homeDetaliViewModel);
            
         }
-      
+
+        /// <summary>
+        /// 创建学生信息
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Create() 
+        {
+            return View();
+        }
+        
     }
 }

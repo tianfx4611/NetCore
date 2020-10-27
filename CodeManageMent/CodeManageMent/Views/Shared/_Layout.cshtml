@@ -1,19 +1,25 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html style="height:100%">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <style type="text/css">
+        body {
+            min-height: 100vh;
+            position: relative;
+            margin: 0;  
+        }
+    </style>
     <environment include="Development">
-        <link rel="stylesheet" 
+        <link rel="stylesheet"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"
-              href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+              href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.css"
               asp-fallback-test-class="sr-only"
               asp-fallback-test-property="postion"
               asp-fallback-test-value="absolute"
-              asp-suppress-fallback-integrity="true"
-              />
+              asp-suppress-fallback-integrity="true" />
     </environment>
     <environment exclude="Development">
         <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
@@ -21,37 +27,13 @@
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" asp-controller="home" asp-action="index">
-            <img src="~/images/student.jpg" width="30" height="30" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="collapseibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="home" asp-action="index">学生列表</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="home" asp-action="create">添加学生</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="home" asp-action="about">关于我们</a>
-                </li>
-            </ul>
+    @Html.Partial("_Header.cshtml")
+    <div style="height:100%;background-image: url(images/main.jpg)">
+        <div class="container">
+            @RenderBody()
         </div>
-    </nav>
-    <div class="container">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <h5 class="text-white h4">Collapsed content</h5>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-        </div>
-
-        @RenderBody()
     </div>
+    @Html.Partial("_Footer.cshtml");
     <script src="~/lib/jquery/jquery.js"></script>
     @RenderSection("Scripts", required: false)
 </body>

@@ -1,0 +1,21 @@
+﻿<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" asp-controller="home" asp-action="index">
+        <img src="~/images/student.jpg" width="30" height="30" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="collapseibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="home" asp-action="index">学生列表</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="home" asp-action="create">添加学生</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="home" asp-action="about">关于我们</a>
+            </li>
+        </ul>
+    </div>
+</nav>
