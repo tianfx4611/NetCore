@@ -4,13 +4,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <style type="text/css">
-        body {
-            min-height: 100vh;
-            position: relative;
-            margin: 0;  
-        }
-    </style>
     <environment include="Development">
         <link rel="stylesheet"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"
@@ -25,15 +18,65 @@
         <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
     </environment>
     <link href="~/css/site.css" rel="stylesheet" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .top {
+            width: 100%;
+            height: 59px;
+        }
+        .content {
+            flex: 1;
+            display: flex;  
+        }
+
+        .left {
+            width: 300px;
+            height: 100%;
+            background: pink;
+        }
+        .right {
+            flex: 1;
+            overflow-x:scroll;
+        }
+        .footer {
+            width: 100%;
+            height: 71px;
+        }
+    </style>
+
 </head>
 <body>
-    @Html.Partial("_Header.cshtml")
-    <div style="height:100%;background-image: url(images/main.jpg)">
-        <div class="container">
-            @RenderBody()
+    <div class="box">
+        <div class="top">
+            @Html.Partial("_Header.cshtml")
+        </div>
+        <div class="content">
+            <div class="left">
+                @Html.Partial("_LeftNav.cshtml")
+            </div>
+            <div class="right">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="footer">
+            @Html.Partial("_Footer.cshtml")
         </div>
     </div>
-    @Html.Partial("_Footer.cshtml");
     <script src="~/lib/jquery/jquery.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
